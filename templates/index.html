@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ws-url" content="{{ WS_URL }}" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/images/logo_icon.png') }}"
+    />
+    <title>PixYard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <script src="{{ url_for('static', filename='js/canvas.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/websocket.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/general.js') }}" defer></script>
+  </head>
+
+  <body>
+    <div class="blur-background"></div>
+
+    <div class="menu-wrapper">
+      <div class="main-menu-wrapper">
+        <div id="menu-content">
+          <div class="logo-wrapper">
+            <img src="/static/assets/images/logo_text.svg" alt="logo text" />
+            <h1 class="subtitle">Sow pixels, reap art!</h1>
+          </div>
+
+          <hr class="seperator" />
+
+          <div id="loading-screen">
+            <svg class="spinner" width="64" height="64" viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="20" fill="none" stroke="#eee" stroke-width="8" />
+              <path
+                d="M24 4
+       A 20 20 0 0 1 44 24"
+                fill="none"
+                stroke="#65bc47"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+            </svg>
+            <p>Connecting</p>
+          </div>
+
+          <div class="content-wrapper u-dis-none">
+            <div class="username-form">
+              <p>Sprout a username:</p>
+              <input
+                id="join-username"
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+                maxlength="32"
+                autocomplete="off"
+              />
+              <button id="join-button">Draw</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-vertical u-dis-none">
+      <button id="color-picker">
+        <img src="/static/assets/images/color_picker_icon.svg" alt="color picker icon" />
+        <span class="tooltip-text">
+          <span class="tooltip-label">Color picker</span>
+          <span class="tooltip-shortcut">(D key)</span>
+        </span>
+      </button>
+      <button id="alpha-picker">
+        <img src="/static/assets/images/alpha_icon.svg" alt="alpha icon" />
+        <span class="tooltip-text">
+          <span class="tooltip-label">Pencil's transparency</span>
+          <span class="tooltip-shortcut">(A key)</span>
+        </span>
+      </button>
+      <button id="pencil">
+        <img src="/static/assets/images/pencil_icon.svg" alt="pencil icon" />
+        <span class="tooltip-text">
+          <span class="tooltip-label">Pencil</span>
+          <span class="tooltip-shortcut">(Left click)</span>
+        </span>
+      </button>
+      <button id="eyedropper">
+        <img src="/static/assets/images/eyedropper_icon.svg" alt="eyedropper icon" />
+        <span class="tooltip-text">
+          <span class="tooltip-label">Eyedropper</span>
+          <span class="tooltip-shortcut">(Middle click)</span>
+        </span>
+      </button>
+      <button id="hand">
+        <img src="/static/assets/images/hand_icon.svg" alt="hand icon" />
+        <span class="tooltip-text">
+          <span class="tooltip-label">Pan tool</span>
+          <span class="tooltip-shortcut">(Right click)</span>
+        </span>
+      </button>
+    </div>
+
+    <div id="color-picker-panel" class="tool-panel">
+      <div id="iro-color-picker"></div>
+      <input type="text" placeholder="HEX or RGB value" />
+      <div class="text-value"></div>
+    </div>
+
+    <div id="alpha-picker-panel" class="tool-panel">
+      <div id="iro-alpha-picker"></div>
+      <input type="number" min="0" max="255" placeholder="Alpha value" />
+      <div class="text-value"></div>
+    </div>
+
+    <div class="swatches-menu u-dis-none">
+      <span class="swatches-tooltip">
+        <span class="tooltip-label">Color swatches</span>
+        <span class="tooltip-shortcut">(1-7 keys)</span>
+      </span>
+      <div class="swatch" data-color="#65bc47" style="background: #65bc47"></div>
+      <div class="swatch" data-color="#47bca8" style="background: #47bca8"></div>
+      <div class="swatch" data-color="#478bbc" style="background: #478bbc"></div>
+      <div class="swatch" data-color="#6f47bc" style="background: #6f47bc"></div>
+      <div class="swatch" data-color="#bc4796" style="background: #bc4796"></div>
+      <div class="swatch" data-color="#bc4747" style="background: #bc4747"></div>
+      <div class="swatch" data-color="#bca547" style="background: #bca547"></div>
+    </div>
+
+    <div class="current-data u-dis-none">
+      <p class="current-coordinates">(?, ?)</p>
+      <div class="separator">|</div>
+      <div class="current-color">
+        <span class="current-color-swatch"></span>
+        <p class="current-color-value">#????????</p>
+      </div>
+    </div>
+
+    <canvas id="grid"></canvas>
+  </body>
+</html>

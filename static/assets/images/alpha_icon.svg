@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 128 128">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 152)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #523e2d;
+        stroke: #523e2d;
+        stroke-miterlimit: 10;
+        stroke-width: 1px;
+      }
+
+      .st1 {
+        fill: #67bd48;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st1" d="M14.41,12.5h15.26v17.17H12.5v-15.26c0-1.05.85-1.91,1.91-1.91Z"/>
+    <rect class="st1" x="46.83" y="12.5" width="17.17" height="17.17"/>
+    <rect class="st1" x="81.17" y="12.5" width="17.17" height="17.17"/>
+    <rect class="st1" x="29.67" y="29.67" width="17.17" height="17.17"/>
+    <rect class="st1" x="64" y="29.67" width="17.17" height="17.17"/>
+    <rect class="st1" x="98.33" y="29.67" width="17.17" height="17.17"/>
+    <rect class="st1" x="12.5" y="46.83" width="17.17" height="17.17"/>
+    <rect class="st1" x="46.83" y="46.83" width="17.17" height="17.17"/>
+    <rect class="st1" x="81.17" y="46.83" width="17.17" height="17.17"/>
+    <rect class="st1" x="29.67" y="64" width="17.17" height="17.17"/>
+    <rect class="st1" x="64" y="64" width="17.17" height="17.17"/>
+    <rect class="st1" x="98.33" y="64" width="17.17" height="17.17"/>
+    <rect class="st1" x="12.5" y="81.17" width="17.17" height="17.17"/>
+    <rect class="st1" x="46.83" y="81.17" width="17.17" height="17.17"/>
+    <rect class="st1" x="81.17" y="81.17" width="17.17" height="17.17"/>
+    <rect class="st1" x="29.67" y="98.33" width="17.17" height="17.17"/>
+    <rect class="st1" x="64" y="98.33" width="17.17" height="17.17"/>
+    <path class="st1" d="M98.33,98.33h17.17v15.26c0,1.05-.85,1.91-1.91,1.91h-15.26v-17.17h0Z"/>
+  </g>
+  <path class="st0" d="M120.11,127H7.89c-4.07,0-7.39-3.29-7.39-7.33V8.3C.5,4.27,3.8,1,7.86,1h112.26c4.07,0,7.39,3.29,7.39,7.33v111.34c0,4.04-3.31,7.33-7.39,7.33ZM7.86,5.74c-1.42,0-2.58,1.15-2.58,2.56v111.37c0,1.43,1.17,2.59,2.61,2.59h112.22c1.44,0,2.61-1.16,2.61-2.59V8.33c0-1.43-1.17-2.59-2.61-2.59H7.86Z"/>
+</svg>
